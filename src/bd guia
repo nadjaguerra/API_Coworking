@@ -1,0 +1,51 @@
+
+Tabela Usuário:
+
+UserID (Chave Primária)
+Nome
+Sobrenome
+Email
+Senha
+Número de Telefone
+Empresa (caso aplicável)
+
+Tabela Espaço de Trabalho:
+
+WorkspaceID (Chave Primária)
+Nome do Espaço
+Descrição
+Endereço
+Capacidade Máxima
+Preço por Hora/Day/Week/Month
+
+Tabela Reserva:
+
+ReservationID (Chave Primária)
+UserID (Chave Estrangeira referenciando User.UserID)
+WorkspaceID (Chave Estrangeira referenciando Workspace.WorkspaceID)
+Data e Hora de Início
+Data e Hora de Término
+Status (Confirmada, Pendente, Cancelada)
+
+Tabela Serviços Adicionais:
+
+ServiceID (Chave Primária)
+Nome do Serviço
+Descrição
+Preço Adicional
+
+Tabela ReservaServiço (Relacionamento Muitos-para-Muitos entre Reserva e Serviços Adicionais):
+
+ReservationServiceID (Chave Primária)
+ReservationID (Chave Estrangeira referenciando Reservation.ReservationID)
+ServiceID (Chave Estrangeira referenciando AdditionalService.ServiceID)
+Quantidade
+
+Tabela Pagamento:
+
+PaymentID (Chave Primária)
+UserID (Chave Estrangeira referenciando User.UserID)
+ReservationID (Chave Estrangeira referenciando Reservation.ReservationID)
+Valor
+Data do Pagamento
+Método de Pagamento
