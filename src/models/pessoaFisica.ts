@@ -18,8 +18,7 @@ export class PessoaFisica extends Cliente implements ICliente {
   }
 
   
-   /* getGenericCliente(property: keyof Cliente): (() => string) | (() => number) | (() => string) | (() => string) | (() => string) | (() => number) | ((property: keyof Cliente) => (() => string) | (() => number) | (() => string) | (() => string) | (() => string) | (() => number) | any) {
-        throw new Error("Method not implemented.");
+   /* getGenericCliente(property: keyof Cliente): 
     }*/
 
 }

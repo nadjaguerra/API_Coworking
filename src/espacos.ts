@@ -1,35 +1,39 @@
-import { Sequelize, DataTypes, Model } from "sequelize";
+import { Sequelize, DataTypes } from "sequelize";
+import { database } from "./db";
 
-class Coworking extends Model {
-  static init(sequelize: Sequelize) {
-    return super.init(
-      {
-        reservaID: {
-          type: DataTypes.UUID,
-          defaultValue: DataTypes.UUIDV4,
-          primaryKey: true,
-        },
-        cliente: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
-        sala: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
-        horaInicio: {
-          type: DataTypes.DATE,
-          allowNull: false,
-        },
-        horaFim: {
-          type: DataTypes.DATE,
-          allowNull: false,
-        },
-      },
-      {
-        sequelize,
-        modelName: "Coworking",
-      }
-    );
-  }
-}
+const SalaAgendamento = database.define("sala_agendamento", {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    allowNull: false,
+    primaryKey: true,
+  },
+  salaId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    // Adicione uma relação com a tabela de salas, se existir
+  },
+  usuarioId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    // Adicione uma relação com a tabela de usuários, se existir
+  },
+  dataInicio: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  dataFim: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  descricao: {
+    type: DataTypes.STRING,
+  },
+  // Adicione outros campos relevantes para um agendamento de sala
+});
+
+// Adicione relacionamentos, se necessário
+// SalaAgendamento.belongsTo(Sala, { foreignKey: 'salaId' });
+// SalaAgendamento.belongsTo(Usuario, { foreignKey: 'usuarioId' });
+
+export default SalaAgendamento;

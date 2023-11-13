@@ -17,3 +17,4 @@ export class PessoaJuridica extends Cliente implements ICliente {
     return this.cnpj;
   }
 }
+// toString():
