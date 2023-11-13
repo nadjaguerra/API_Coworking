@@ -29,11 +29,8 @@ const SalaAgendamento = database.define("sala_agendamento", {
   descricao: {
     type: DataTypes.STRING,
   },
-  // Adicione outros campos relevantes para um agendamento de sala
+  
 });
 
-// Adicione relacionamentos, se necessário
-// SalaAgendamento.belongsTo(Sala, { foreignKey: 'salaId' });
-// SalaAgendamento.belongsTo(Usuario, { foreignKey: 'usuarioId' });
 
 export default SalaAgendamento;
